@@ -1,7 +1,8 @@
 import dynamic from 'next/dynamic';
 import { NextPage } from 'next';
 import 'leaflet/dist/leaflet.css';
-import Map from '@/components/Map';
+
+const Map = dynamic(() => import('@/components/Map'), { ssr: false });
 
 const Home: NextPage = () => {
   return (

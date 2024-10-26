@@ -88,7 +88,7 @@ export default function Map() {
           infoBox.innerHTML = `<b>${city.city}</b><br>Population: ${city.population}<br><b>Region</b>: ${city.admin_name}<br><b>Country</b>: ${city.country}`;
         }
       });
-      var p = new L.Popup({ autoClose: false, closeOnClick: false, closeButton: false })
+      const p = new L.Popup({ autoClose: false, closeOnClick: false, closeButton: false })
                 .setContent(city.city)
                 .setLatLng([city.lat, city.lng]);
       marker.bindPopup(p).addTo(map);
@@ -106,8 +106,8 @@ export default function Map() {
   };
 
   const handleCountryClick = (feature: any, layer: any, map: L.Map) => {
-    var countryName = feature.properties.name;
-    var countryCode = feature.id;  // Assuming the GeoJSON uses ISO country codes (e.g., "JP" for Japan)
+    const countryName = feature.properties.name;
+    const countryCode = feature.id;  // Assuming the GeoJSON uses ISO country codes (e.g., "JP" for Japan)
     const infoBox = document.getElementById('info-box');
     if (infoBox) {
       infoBox.innerHTML = "You selected: " + countryName;
